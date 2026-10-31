@@ -1,44 +1,49 @@
-# Arjun Atroley — Personal Portfolio
+# Arjun Atroley
 
-A personal portfolio website showcasing my background, technical interests, skills, and projects.
+Personal portfolio built to showcase my projects, interests, and work as a Computer Science student.
 
-## Live Website
-
-- **Vercel:** [arjun-portfolio-sigma-six.vercel.app](https://arjun-portfolio-sigma-six.vercel.app/)
-- **GitHub Pages:** [butterchicken31.github.io/arjun-portfolio](https://butterchicken31.github.io/arjun-portfolio/)
+🌐 **Portfolio:** [Vercel](https://arjun-portfolio-sigma-six.vercel.app/) · [GitHub Pages](https://butterchicken31.github.io/arjun-portfolio/)
 
 ## About
 
-I'm Arjun Atroley, a first-year B.Tech student in Computer Science and Engineering at Manipal University Jaipur. I'm interested in cybersecurity, artificial intelligence, web development, and building software projects.
+I'm a first-year Computer Science and Engineering student at Manipal University Jaipur. I enjoy exploring cybersecurity, AI/ML, and web development, and working on projects that help me learn new things.
 
-This website showcases my work, interests, and journey as a developer.
+This portfolio is where I keep my projects, certificates, and a little about myself.
 
-## Built With
+## Tech Stack
 
-- **HTML5** — Page structure and content
-- **CSS3** — Styling, layouts, animations, and responsive design
-- **JavaScript** — Interactive elements and functionality
+- HTML
+- CSS
+- JavaScript
 
-Built with plain HTML, CSS, and JavaScript, without frameworks or build tools.
+No frameworks or build tools — just the basics.
 
-## Features
+## What's Inside
 
-- Minimal, dark-themed design
-- Responsive layout for desktop and mobile
-- Personal introduction and interests
-- Project showcase
-- Social and contact links
-- Interactive UI elements
+- A little introduction about me
+- My technical interests and hobbies
+- Projects I've worked on
+- Certifications and achievements
+- Links to my GitHub, Instagram, and email
 
-## Projects
 
-A few projects I've worked on:
+## Running Locally
 
-- **AccessLease** — A cybersecurity-focused project developed during Code-e-Manipal 2.0.
-- **MediTrace** — A prescription safety checker developed during a hackathon.
-- **Password Strength Analyzer** — A web-based tool for evaluating password strength.
+Clone the repository:
 
-## Project Structure
+```bash
+git clone https://github.com/butterchicken31/arjun-portfolio.git
+```
+
+Move into the project folder:
+
+```bash
+cd arjun-portfolio
+```
+
+Open `index.html` in your browser, or run it using the Live Server extension in VS Code.
+
+## Folder Structure
 
 ```text
 arjun-portfolio/
@@ -46,33 +51,20 @@ arjun-portfolio/
 ├── style.css
 ├── script.js
 ├── profile.png
+├── certificates/
+│   ├── README.txt
+│   ├── certificate-name.pdf
+│   └── certificate-name.jpg
 └── README.md
 ```
 
-## Run Locally
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/butterchicken31/arjun-portfolio.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd arjun-portfolio
-   ```
-
-3. Open `index.html` in your browser, or use the Live Server extension in VS Code.
+The `certificates/` folder stores certificate files and their image previews.
 
 ## Deployment
 
-This website is deployed on:
+The portfolio is hosted on both Vercel and GitHub Pages. Vercel is connected to the GitHub repository, so new pushes are automatically deployed.
 
-- **Vercel** — Connected to the GitHub repository for automatic deployments.
-- **GitHub Pages** — Published from the `main` branch.
-
-## Connect
+## Find Me
 
 - **GitHub:** [@butterchicken31](https://github.com/butterchicken31)
 - **Instagram:** [@butterchicken_31](https://instagram.com/butterchicken_31)
@@ -80,4 +72,4 @@ This website is deployed on:
 
 ---
 
-*Built with HTML, CSS, JavaScript, and curiosity.*
+*Made by Arjun.*
