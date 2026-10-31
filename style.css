@@ -230,6 +230,84 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 }
 .interest-grid li:hover { border-color: var(--line-strong); }
 
+/* ---------- 8b. Certificates ---------- */
+/* auto-fit: as many columns as fit (3 on desktop, 1 on phones), no media query needed */
+.certificate-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+
+.certificate {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.certificate:hover { border-color: var(--line-strong); transform: translateY(-3px); }
+
+/* Image preview area. contain = the whole certificate is visible, nothing is cropped */
+.certificate-thumb {
+  aspect-ratio: 3 / 2;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.certificate-thumb img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Shown instead of the image when the file is missing (script.js adds "no-image") */
+.thumb-fallback { display: none; color: var(--text-muted); font-size: 0.9rem; }
+.certificate-thumb.no-image img { display: none; }
+.certificate-thumb.no-image .thumb-fallback { display: block; }
+
+.certificate-body { display: flex; flex-direction: column; flex: 1; padding: 20px; }
+.certificate h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: normal; color: var(--text); margin-bottom: 4px; }
+.certificate-issuer { font-size: 0.95rem; margin-bottom: 20px; }
+
+.certificate-actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Same look for the Preview button and the View Full Certificate link */
+.certificate-button {
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.88rem;
+  padding: 6px 12px;
+  border: 1px solid var(--line-strong);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.certificate-button:hover { border-color: var(--text); background: var(--bg); }
+.certificate-button:disabled { opacity: 0.4; cursor: not-allowed; }
+.certificate-button:disabled:hover { border-color: var(--line-strong); background: none; }
+
+/* Lightbox: full-screen dark overlay, hidden until script.js adds "open" */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20;                          /* above the sticky nav */
+  background: rgba(0, 0, 0, 0.9);
+  padding: 64px 24px 24px;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border: 1px solid var(--line-strong); }
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--bg-raised);
+  color: var(--text);
+  font: inherit;
+  padding: 8px 16px;
+  border: 1px solid var(--line-strong);
+  cursor: pointer;
+}
+.lightbox-close:hover { border-color: var(--text); }
+body.lightbox-open { overflow: hidden; }   /* stops the page scrolling behind the lightbox */
+
 /* ---------- 9. Contact ---------- */
 .contact-list { margin-top: 24px; }
 .contact-list a {

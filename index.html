@@ -22,6 +22,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#interests">Interests</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -116,7 +117,7 @@
               access permissions that were never revoked, helping organizations spot access
               that may no longer be needed.
             </p>
-            <p class="project-meta">Team Techidiots. Reached the Final Round at Code-e-Manipal 2.0.</p>
+            
           </article>
 
           <!-- PROJECT 2 -->
@@ -127,17 +128,11 @@
               users identify potential prescription safety concerns using available verified
               data and transparent evidence.
             </p>
-            <p class="project-meta">Team Ryzen9.</p>
+            
           </article>
 
-          <!-- PROJECT 3 -->
-          <article class="project">
-            <h3>Password Strength Analyzer</h3>
-            <p>
-              A web-based cybersecurity tool built for CyberX. It helps users understand how
-              strong their password is through an interactive interface.
-            </p>
-          </article>
+          
+          
 
         </div>
       </div>
@@ -157,19 +152,89 @@
 
           <ul class="timeline">
             <li>
-              <h3>Former Director, CyberX</h3>
+              <h3>Former Director, CyberX(Cybersecurity Club)</h3>
               <p class="timeline-place">Delhi Public School, R.K. Puram</p>
               <p>Organized and took part in technology and cybersecurity initiatives.</p>
             </li>
             <li>
               <h3>Hackathons</h3>
-              <p>Participated in hackathons in college, including Code-e-Manipal 2.0 and HypNexis, where I lead and worked on AccessLease and MediTrace with my teams.</p>
+              <p>Participated in hackathons, including Code-e-Manipal 2.0, where I worked on AccessLease and MediTrace with my teams.</p>
             </li>
             <li>
               <h3>Collaborative development</h3>
               <p>Built software as part of teams, sharing code and ideas with teammates.</p>
             </li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATIONS AND ACHIEVEMENTS ============ -->
+    <section id="certificates" class="section">
+      <div class="container section-grid">
+        <h2>Certifications &amp; Achievements</h2>
+
+        <!-- TO ADD A CERTIFICATE: copy one whole card below, paste it at the end of this list,
+             then change the title, organisation, image src (.jpg) and PDF href (.pdf).
+             Keep both files in the certificates/ folder, e.g. my-course.jpg and my-course.pdf -->
+        <div class="certificate-list">
+
+          <!-- ===== CERTIFICATE CARD: copy from here ===== -->
+          <article class="certificate">
+            <div class="certificate-thumb">
+              <!-- Preview image: change src and alt -->
+              <img src="certificates/ai-ml-workshop.jpg" alt="Preview of the AI/ML Workshop certificate from Randomize Club" loading="lazy">
+              <span class="thumb-fallback">Preview not available</span>
+            </div>
+            <div class="certificate-body">
+              <h3>AI/ML Workshop</h3>
+              <p class="certificate-issuer">Randomize Club</p>
+              <div class="certificate-actions">
+                <button type="button" class="certificate-button preview-button">Preview</button>
+                <!-- Full certificate: change the PDF file name in href -->
+                <a class="certificate-button" href="certificates/ai-ml-workshop.pdf" target="_blank" rel="noopener noreferrer">View Full Certificate</a>
+              </div>
+            </div>
+          </article>
+          <!-- ===== ...to here ===== -->
+
+          <!-- ===== CERTIFICATE CARD: copy from here ===== -->
+          <article class="certificate">
+            <div class="certificate-thumb">
+              <!-- Preview image: change src and alt -->
+              <img src="certificates/code-e-manipal-round-1.jpg" alt="Preview of the Round 1 certificate from Code-e-Manipal 2.0" loading="lazy">
+              <span class="thumb-fallback">Preview not available</span>
+            </div>
+            <div class="certificate-body">
+              <h3>Round 1</h3>
+              <p class="certificate-issuer">Code-e-Manipal 2.0</p>
+              <div class="certificate-actions">
+                <button type="button" class="certificate-button preview-button">Preview</button>
+                <!-- Full certificate: change the PDF file name in href -->
+                <a class="certificate-button" href="certificates/code-e-manipal-round-1.pdf" target="_blank" rel="noopener noreferrer">View Full Certificate</a>
+              </div>
+            </div>
+          </article>
+          <!-- ===== ...to here ===== -->
+
+          <!-- ===== CERTIFICATE CARD: copy from here ===== -->
+          <article class="certificate">
+            <div class="certificate-thumb">
+              <!-- Preview image: change src and alt -->
+              <img src="certificates/code-e-manipal-round-2.jpg" alt="Preview of the Round 2 certificate from Code-e-Manipal 2.0" loading="lazy">
+              <span class="thumb-fallback">Preview not available</span>
+            </div>
+            <div class="certificate-body">
+              <h3>Round 2</h3>
+              <p class="certificate-issuer">Code-e-Manipal 2.0</p>
+              <div class="certificate-actions">
+                <button type="button" class="certificate-button preview-button">Preview</button>
+                <!-- Full certificate: change the PDF file name in href -->
+                <a class="certificate-button" href="certificates/code-e-manipal-round-2.pdf" target="_blank" rel="noopener noreferrer">View Full Certificate</a>
+              </div>
+            </div>
+          </article>
+          <!-- ===== ...to here ===== -->
         </div>
       </div>
     </section>
@@ -226,7 +291,7 @@
       <div class="container section-grid">
         <h2>Contact</h2>
         <div>
-          <p>The best way to reach me is by email. You can also find me on GitHub and Instagram.</p>
+         
           <ul class="contact-list">
             <li>
               <a href="https://github.com/butterchicken31" target="_blank" rel="noopener noreferrer">
@@ -256,6 +321,12 @@
       <p>&copy; <span id="current-year">2026</span> Arjun Atroley. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Certificate preview (lightbox). script.js fills in the image and shows it. -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button type="button" id="lightbox-close" class="lightbox-close">Close</button>
+    <img id="lightbox-image" src="" alt="">
+  </div>
 
   <button id="back-to-top" class="back-to-top" aria-label="Back to top">Top</button>
 

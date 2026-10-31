@@ -43,3 +43,70 @@ backToTopButton.addEventListener("click", function () {
 
 // 5. Footer: write the current year automatically
 yearText.textContent = new Date().getFullYear();
+
+// 6. Certificate previews
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightbox-image");
+const lightboxCloseButton = document.getElementById("lightbox-close");
+const certificateCards = document.querySelectorAll(".certificate");
+let lastPreviewButton = null;   // remembers which button opened the lightbox
+
+function openLightbox(imageSource, imageDescription, button) {
+  lightboxImage.src = imageSource;
+  lightboxImage.alt = imageDescription;
+  lightbox.classList.add("open");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("lightbox-open");
+  lastPreviewButton = button;
+  lightboxCloseButton.focus();
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("lightbox-open");
+  lightboxImage.src = "";
+  if (lastPreviewButton) {
+    lastPreviewButton.focus();   // return keyboard focus to where the user was
+  }
+}
+
+// Set up every certificate card
+certificateCards.forEach(function (card) {
+  const previewImage = card.querySelector("img");
+  const thumbnailBox = card.querySelector(".certificate-thumb");
+  const previewButton = card.querySelector(".preview-button");
+
+  // If the image file is missing: show the fallback text and disable Preview
+  function showFallback() {
+    thumbnailBox.classList.add("no-image");
+    previewButton.disabled = true;
+  }
+
+  previewImage.addEventListener("error", showFallback);
+  // The error may already have happened before this code ran, so check again
+  if (previewImage.complete && previewImage.naturalWidth === 0) {
+    showFallback();
+  }
+
+  previewButton.addEventListener("click", function () {
+    openLightbox(previewImage.src, previewImage.alt, previewButton);
+  });
+});
+
+// Close with the Close button
+lightboxCloseButton.addEventListener("click", closeLightbox);
+
+// Close by clicking the dark area (but not the image itself)
+lightbox.addEventListener("click", function (event) {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+// Close with the Escape key
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && lightbox.classList.contains("open")) {
+    closeLightbox();
+  }
+});
