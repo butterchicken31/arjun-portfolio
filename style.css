@@ -1,0 +1,303 @@
+/* ---------- 1. Colours, fonts and basic settings ---------- */
+:root {
+  --white: #ffffff;
+  --off-white: #f5f5f5;
+  --black: #000000;
+  --grey-dark: #4a4a4a;
+  --grey-mid: #767676;
+  --grey-line: #dcdcdc;
+
+  --font-body: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --nav-height: 64px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;   /* smooth scrolling when a nav link is clicked */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+a { color: inherit; }
+ul { list-style: none; }
+
+/* Centres content and limits its width */
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Visible outline for keyboard users */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+
+/* ---------- 2. Navigation (Flexbox) ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--white);
+  border-bottom: 1px solid var(--grey-line);
+}
+
+.navbar {
+  height: var(--nav-height);
+  display: flex;                    /* puts brand and links in one row */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links { display: flex; gap: 28px; }
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--grey-dark);
+  font-size: 0.95rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-links a:hover { color: var(--black); border-color: var(--black); }
+
+.menu-button {
+  display: none;                    /* hidden on desktop */
+  background: none;
+  border: 1px solid var(--black);
+  padding: 6px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- 3. Hero ---------- */
+.hero {
+  padding: 120px 0 110px;
+  animation: fade-in 0.9s ease-out;   /* the only entrance animation */
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 9vw, 6.5rem);   /* grows and shrinks with screen width */
+  line-height: 1.05;
+  font-weight: normal;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.hero-intro {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin-bottom: 24px;
+}
+
+.hero-education {
+  color: var(--grey-mid);
+  margin-bottom: 40px;
+}
+
+.button-row { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.button {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--black);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.button-primary { background: var(--black); color: var(--white); }
+.button-primary:hover { background: var(--white); color: var(--black); }
+.button-outline:hover { background: var(--black); color: var(--white); }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- 4. Sections (CSS Grid) ---------- */
+.section {
+  padding: 80px 0;
+  border-top: 1px solid var(--grey-line);
+  scroll-margin-top: var(--nav-height);   /* stops the sticky nav covering headings */
+}
+
+/* Two columns: title on the left, content on the right */
+.section-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+}
+
+.section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: normal;
+  line-height: 1.25;
+}
+
+.section h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.section p + p { margin-top: 12px; }
+.note { color: var(--grey-dark); margin-bottom: 32px; }
+
+/* Placeholder text you still need to replace */
+.placeholder {
+  background: var(--off-white);
+  border-bottom: 1px dashed var(--grey-mid);
+  color: var(--grey-dark);
+  padding: 0 4px;
+}
+
+/* About facts */
+.facts { margin-top: 32px; }
+.facts div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--grey-line);
+}
+.facts dt { color: var(--grey-mid); }
+
+/* ---------- 5. Skills ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.tags li {
+  border: 1px solid var(--grey-line);
+  padding: 4px 12px;
+  font-size: 0.92rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.tags li:hover { border-color: var(--black); background: var(--off-white); }
+
+/* ---------- 6. Projects ---------- */
+.project-list { display: grid; gap: 24px; }
+
+.project {
+  border: 1px solid var(--grey-line);
+  padding: 28px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.project:hover { border-color: var(--black); transform: translateY(-3px); }
+
+.project h3 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: normal; }
+.project-meta { color: var(--grey-dark); font-size: 0.95rem; }
+.project-links { display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.9rem; margin-top: 16px; }
+.project-links a { border-bottom: 1px solid var(--black); text-decoration: none; }
+
+/* ---------- 7. Experience ---------- */
+.highlight {
+  background: var(--black);
+  color: var(--white);
+  padding: 28px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.highlight-number { font-family: var(--font-heading); font-size: 3.5rem; line-height: 1; }
+
+.timeline li { padding: 20px 0; border-top: 1px solid var(--grey-line); }
+.timeline-place { color: var(--grey-mid); font-size: 0.95rem; }
+
+/* ---------- 8. Interests ---------- */
+.plain-list { margin-bottom: 36px; }
+.plain-list li { padding: 8px 0; border-bottom: 1px solid var(--grey-line); }
+.two-columns { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+
+/* ---------- 9. Contact ---------- */
+.contact-list { margin-top: 24px; }
+.contact-list a {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--grey-line);
+  text-decoration: none;
+  transition: padding-left 0.2s;
+}
+.contact-list li:last-child a { border-bottom: 1px solid var(--grey-line); }
+.contact-list a:hover { padding-left: 12px; }
+.contact-detail { color: var(--grey-dark); }
+
+/* ---------- 10. Footer and back-to-top ---------- */
+.site-footer {
+  border-top: 1px solid var(--grey-line);
+  padding: 32px 0;
+  color: var(--grey-mid);
+  font-size: 0.9rem;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  padding: 10px 16px;
+  background: var(--black);
+  color: var(--white);
+  border: 1px solid var(--black);
+  font: inherit;
+  cursor: pointer;
+  display: none;                      /* script.js shows it after scrolling */
+}
+.back-to-top.visible { display: block; }
+.back-to-top:hover { background: var(--white); color: var(--black); }
+
+/* ---------- 11. Responsive design (media queries) ---------- */
+@media (max-width: 800px) {
+  .section-grid { grid-template-columns: 1fr; gap: 24px; }   /* stack title above content */
+  .skills-grid { grid-template-columns: 1fr; }
+  .hero { padding: 72px 0; }
+}
+
+@media (max-width: 720px) {
+  .menu-button { display: block; }
+
+  .nav-links {
+    display: none;                    /* hidden until Menu is pressed */
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--grey-line);
+  }
+  .nav-links.open { display: flex; }  /* script.js adds the "open" class */
+  .nav-links a { display: block; padding: 14px 24px; border: none; }
+}
+
+@media (max-width: 520px) {
+  .two-columns { grid-template-columns: 1fr; }
+  .facts div { grid-template-columns: 1fr; gap: 2px; }
+  .highlight { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* Respect people who turn animations off in their system settings */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}

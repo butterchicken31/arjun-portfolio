@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Arjun Atroley - first-year Computer Science student at Manipal University Jaipur.">
+  <title>Arjun Atroley | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a href="#home" class="brand">Arjun Atroley</a>
+
+      <!-- This button is only visible on phones (see style.css) -->
+      <button id="menu-button" class="menu-button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Arjun Atroley</h1>
+        <p class="hero-intro">
+          I am a computer science student interested in technology, problem-solving
+          and building practical solutions.
+        </p>
+        <p class="hero-education">
+          B.Tech in Computer Science and Engineering, first year<br>
+          Manipal University Jaipur
+        </p>
+        <div class="button-row">
+          <a href="#projects" class="button button-primary">View Projects</a>
+          <a href="#contact" class="button button-outline">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section">
+      <div class="container section-grid">
+        <h2>About me</h2>
+        <div>
+          <p>
+            I enjoy exploring different areas of computing, taking part in hackathons
+            and learning by building projects. I am still early in my degree, so I
+            use every project as a chance to learn something new.
+          </p>
+
+          <dl class="facts">
+            <div><dt>Studying</dt><dd>B.Tech in Computer Science and Engineering, Manipal University Jaipur (first year)</dd></div>
+            <div><dt>Previously</dt><dd>Delhi Public School, R.K. Puram</dd></div>
+            <div>
+              <dt>Born</dt>
+              <!-- TODO: replace the text inside the span with your birth month and year, e.g. March 2007 -->
+              <dd><span class="placeholder">January 2009</span></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section">
+      <div class="container section-grid">
+        <h2>Technical skills</h2>
+        <div>
+          <p class="note">Technologies I have worked with. I am still learning and building experience in each of them.</p>
+
+          <!-- Three groups laid out side by side with CSS Grid -->
+          <div class="skills-grid">
+            <div>
+              <h3>Programming languages</h3>
+              <ul class="tags"><li>Python</li><li>C</li></ul>
+            </div>
+            <div>
+              <h3>Web development</h3>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li><li>Next.js</li></ul>
+            </div>
+            <div>
+              <h3>Tools and technologies</h3>
+              <ul class="tags"><li>Git</li><li>GitHub</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section">
+      <div class="container section-grid">
+        <h2>Projects</h2>
+        <div class="project-list">
+
+          <!-- PROJECT 1 -->
+          <article class="project">
+            <h3>AccessLease</h3>
+            <p>
+              A cybersecurity project built during Code-e-Manipal 2.0. It identifies temporary
+              access permissions that were never revoked, helping organizations spot access
+              that may no longer be needed.
+            </p>
+            <p class="project-meta">Team Techidiots. Placed 5th out of 70 participating teams.</p>
+            <p class="project-meta">Technologies: <span class="placeholder">[add later]</span></p>
+            <!--
+              TODO: when you have a link, replace a placeholder span with:
+              <a href="YOUR-LINK-HERE" target="_blank" rel="noopener noreferrer">GitHub</a>
+            -->
+            <p class="project-links">
+              <span class="placeholder">GitHub link: add later</span>
+              <span class="placeholder">Live demo: add later</span>
+            </p>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project">
+            <h3>MediTrace</h3>
+            <p>
+              An AI-assisted prescription safety checker built during a hackathon. It helps
+              users identify potential prescription safety concerns using available verified
+              data and transparent evidence.
+            </p>
+            <p class="project-meta">Team Ryzen9.</p>
+            <p class="project-meta">Technologies: <span class="placeholder">[add later]</span></p>
+            <p class="project-links">
+              <span class="placeholder">GitHub link: add later</span>
+              <span class="placeholder">Live demo: add later</span>
+            </p>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="project">
+            <h3>Password Strength Analyzer</h3>
+            <p>
+              A web-based cybersecurity tool built for CyberX. It helps users understand how
+              strong their password is through an interactive interface.
+            </p>
+            <p class="project-meta">Technologies: <span class="placeholder">[add later]</span></p>
+            <p class="project-links">
+              <span class="placeholder">GitHub link: add later</span>
+              <span class="placeholder">Live demo: add later</span>
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE AND ACHIEVEMENTS ============ -->
+    <section id="experience" class="section">
+      <div class="container section-grid">
+        <h2>Experience and achievements</h2>
+        <div>
+          <div class="highlight">
+            <p class="highlight-number">5th</p>
+            <p>
+              out of 70 teams at Code-e-Manipal 2.0, with AccessLease (Team Techidiots).
+            </p>
+          </div>
+
+          <ul class="timeline">
+            <li>
+              <h3>Former Director, CyberX</h3>
+              <p class="timeline-place">Delhi Public School, R.K. Puram</p>
+              <p>Organized and took part in technology and cybersecurity initiatives.</p>
+            </li>
+            <li>
+              <h3>Hackathons</h3>
+              <p>Participated in hackathons, including Code-e-Manipal 2.0, where I worked on AccessLease and MediTrace with my teams.</p>
+            </li>
+            <li>
+              <h3>Collaborative development</h3>
+              <p>Built software as part of teams, sharing code and ideas with teammates.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERESTS ============ -->
+    <section id="interests" class="section">
+      <div class="container section-grid">
+        <h2>Interests</h2>
+        <div>
+          <h3>Technical</h3>
+          <ul class="plain-list two-columns">
+            <li>Cybersecurity</li>
+            <li>Artificial Intelligence</li>
+            <li>Web development</li>
+            <li>Software engineering</li>
+            <li>Problem-solving</li>
+            <li>Hackathons</li>
+            <li>Exploring emerging technologies</li>
+          </ul>
+
+          <h3>Outside academics</h3>
+          <!-- TODO: replace these placeholders with your real hobbies -->
+          <ul class="plain-list two-columns">
+            <li><span class="placeholder">Playing guitar</span></li>
+            <li><span class="placeholder">Trekking</span></li>
+            <li><span class="placeholder">Watching movies</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section">
+      <div class="container section-grid">
+        <h2>Contact</h2>
+        <div>
+          <p>The best way to reach me is by email. You can also find me on GitHub and Instagram.</p>
+          <ul class="contact-list">
+            <li>
+              <a href="https://github.com/butterchicken31" target="_blank" rel="noopener noreferrer">
+                <span>GitHub</span><span class="contact-detail">butterchicken31</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/butterchicken_31" target="_blank" rel="noopener noreferrer">
+                <span>Instagram</span><span class="contact-detail">@butterchicken_31</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:arjunatroley@gmail.com">
+                <span>Email</span><span class="contact-detail">arjunatroley@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="current-year">2026</span> Arjun Atroley. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">Top</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
