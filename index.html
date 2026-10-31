@@ -32,7 +32,10 @@
 
     <!-- ============ HERO ============ -->
     <section id="home" class="hero">
-      <div class="container">
+      <div class="container hero-layout">
+
+        <!-- Left side: name, introduction, education and buttons -->
+        <div class="hero-text">
         <h1>Arjun Atroley</h1>
         <p class="hero-intro">
           I am a computer science student interested in technology, problem-solving
@@ -46,6 +49,11 @@
           <a href="#projects" class="button button-primary">View Projects</a>
           <a href="#contact" class="button button-outline">Contact Me</a>
         </div>
+        </div>
+
+        <!-- Right side: photo. The path has no leading slash, so it also works at /arjun-portfolio/ -->
+        <img class="hero-photo" src="profile.png" alt="Portrait of Arjun Atroley" width="280" height="280">
+
       </div>
     </section>
 
@@ -63,11 +71,6 @@
           <dl class="facts">
             <div><dt>Studying</dt><dd>B.Tech in Computer Science and Engineering, Manipal University Jaipur (first year)</dd></div>
             <div><dt>Previously</dt><dd>Delhi Public School, R.K. Puram</dd></div>
-            <div>
-              <dt>Born</dt>
-              <!-- TODO: replace the text inside the span with your birth month and year, e.g. March 2007 -->
-              <dd><span class="placeholder">January 2009</span></dd>
-            </div>
           </dl>
         </div>
       </div>
@@ -113,16 +116,7 @@
               access permissions that were never revoked, helping organizations spot access
               that may no longer be needed.
             </p>
-            <p class="project-meta">Team Techidiots. Placed 5th out of 70 participating teams.</p>
-            <p class="project-meta">Technologies: <span class="placeholder">[add later]</span></p>
-            <!--
-              TODO: when you have a link, replace a placeholder span with:
-              <a href="YOUR-LINK-HERE" target="_blank" rel="noopener noreferrer">GitHub</a>
-            -->
-            <p class="project-links">
-              <span class="placeholder">GitHub link: add later</span>
-              <span class="placeholder">Live demo: add later</span>
-            </p>
+            <p class="project-meta">Team Techidiots. Reached the Final Round at Code-e-Manipal 2.0.</p>
           </article>
 
           <!-- PROJECT 2 -->
@@ -134,11 +128,6 @@
               data and transparent evidence.
             </p>
             <p class="project-meta">Team Ryzen9.</p>
-            <p class="project-meta">Technologies: <span class="placeholder">[add later]</span></p>
-            <p class="project-links">
-              <span class="placeholder">GitHub link: add later</span>
-              <span class="placeholder">Live demo: add later</span>
-            </p>
           </article>
 
           <!-- PROJECT 3 -->
@@ -147,11 +136,6 @@
             <p>
               A web-based cybersecurity tool built for CyberX. It helps users understand how
               strong their password is through an interactive interface.
-            </p>
-            <p class="project-meta">Technologies: <span class="placeholder">[add later]</span></p>
-            <p class="project-links">
-              <span class="placeholder">GitHub link: add later</span>
-              <span class="placeholder">Live demo: add later</span>
             </p>
           </article>
 
@@ -165,7 +149,7 @@
         <h2>Experience and achievements</h2>
         <div>
           <div class="highlight">
-            <p class="highlight-number">5th</p>
+            <p class="highlight-number">Finalist</p>
             <p>
               out of 70 teams at Code-e-Manipal 2.0, with AccessLease (Team Techidiots).
             </p>
@@ -179,7 +163,7 @@
             </li>
             <li>
               <h3>Hackathons</h3>
-              <p>Participated in hackathons, including Code-e-Manipal 2.0, where I worked on AccessLease and MediTrace with my teams.</p>
+              <p>Participated in hackathons in college, including Code-e-Manipal 2.0 and HypNexis, where I lead and worked on AccessLease and MediTrace with my teams.</p>
             </li>
             <li>
               <h3>Collaborative development</h3>
@@ -193,9 +177,8 @@
     <!-- ============ INTERESTS ============ -->
     <section id="interests" class="section">
       <div class="container section-grid">
-        <h2>Interests</h2>
+        <h2>Technical interests</h2>
         <div>
-          <h3>Technical</h3>
           <ul class="plain-list two-columns">
             <li>Cybersecurity</li>
             <li>Artificial Intelligence</li>
@@ -205,15 +188,36 @@
             <li>Hackathons</li>
             <li>Exploring emerging technologies</li>
           </ul>
-
-          <h3>Outside academics</h3>
-          <!-- TODO: replace these placeholders with your real hobbies -->
-          <ul class="plain-list two-columns">
-            <li><span class="placeholder">Playing guitar</span></li>
-            <li><span class="placeholder">Trekking</span></li>
-            <li><span class="placeholder">Watching movies</span></li>
-          </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ HOBBIES ============ -->
+    <section id="hobbies" class="section">
+      <div class="container section-grid">
+        <h2>Hobbies</h2>
+        <!-- Plain text list: these are NOT links -->
+        <ul class="interest-grid">
+            <li>Trekking</li>
+            <li>Playing Guitar</li>
+            <li>Solving Puzzles</li>
+            <li>Listening to Music</li>
+            <li>Watching Movies</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SPORTS AND ACTIVITIES ============ -->
+    <section id="sports" class="section">
+      <div class="container section-grid">
+        <h2>Sports &amp; Activities</h2>
+        <!-- Plain text list: these are NOT links -->
+        <ul class="interest-grid">
+            <li>Badminton</li>
+            <li>Table Tennis</li>
+            <li>Horse Riding</li>
+            <li>Swimming</li>
+        </ul>
       </div>
     </section>
 

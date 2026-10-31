@@ -1,11 +1,12 @@
 /* ---------- 1. Colours, fonts and basic settings ---------- */
 :root {
-  --white: #ffffff;
-  --off-white: #f5f5f5;
-  --black: #000000;
-  --grey-dark: #4a4a4a;
-  --grey-mid: #767676;
-  --grey-line: #dcdcdc;
+  --bg: #090909;            /* almost-black page background */
+  --bg-raised: #111111;     /* slightly lighter, used for cards and the hero panel */
+  --text: #ffffff;          /* primary text (white) */
+  --text-muted: #9a9a9a;    /* secondary text */
+  --line: #262626;          /* subtle borders and dividers */
+  --line-strong: #444444;   /* borders on hover */
+  --accent: #5fbf85;        /* very soft green, used sparingly */
 
   --font-body: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-heading: Georgia, "Times New Roman", serif;
@@ -15,73 +16,60 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  scroll-behavior: smooth;   /* smooth scrolling when a nav link is clicked */
+  scroll-behavior: smooth;   /* smooth scrolling for nav links */
+  color-scheme: dark;        /* tells the browser to draw scrollbars in dark too */
+  background: var(--bg);     /* stops any white flash behind the page */
 }
 
 body {
   font-family: var(--font-body);
-  color: var(--black);
-  background: var(--white);
+  color: var(--text);
+  background: var(--bg);
   line-height: 1.7;
-  font-size: 1rem;
 }
 
 a { color: inherit; }
 ul { list-style: none; }
 
 /* Centres content and limits its width */
-.container {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+.container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
 /* Visible outline for keyboard users */
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--black);
-  outline-offset: 3px;
-}
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 /* ---------- 2. Navigation (Flexbox) ---------- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--white);
-  border-bottom: 1px solid var(--grey-line);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
 }
 
 .navbar {
   height: var(--nav-height);
-  display: flex;                    /* puts brand and links in one row */
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.brand {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: bold;
-  text-decoration: none;
-}
+.brand { font-family: var(--font-heading); font-size: 1.15rem; text-decoration: none; }
 
 .nav-links { display: flex; gap: 28px; }
 
 .nav-links a {
   text-decoration: none;
-  color: var(--grey-dark);
+  color: var(--text-muted);
   font-size: 0.95rem;
-  padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s;
 }
-
-.nav-links a:hover { color: var(--black); border-color: var(--black); }
+.nav-links a:hover { color: var(--text); }
 
 .menu-button {
-  display: none;                    /* hidden on desktop */
+  display: none;                    /* only shown on phones */
   background: none;
-  border: 1px solid var(--black);
+  color: var(--text);
+  border: 1px solid var(--line-strong);
   padding: 6px 14px;
   font: inherit;
   cursor: pointer;
@@ -89,28 +77,50 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- 3. Hero ---------- */
 .hero {
-  padding: 120px 0 110px;
-  animation: fade-in 0.9s ease-out;   /* the only entrance animation */
+  padding: 130px 0 120px;
+  border-bottom: 1px solid var(--line);
+  /* one very soft light patch behind the name, no strong gradient */
+  background: radial-gradient(ellipse at 20% 0%, #1a1a1a 0%, var(--bg) 60%);
+  animation: fade-in 0.9s ease-out;
+}
+
+/* Hero layout: text on the left, photo on the right (Flexbox) */
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+.hero-text { flex: 1; min-width: 0; }   /* min-width: 0 lets long words wrap instead of overflowing */
+
+.hero-photo {
+  width: 280px;
+  height: 280px;
+  flex-shrink: 0;                       /* keep the photo size when space is tight */
+  object-fit: cover;                    /* fills the frame without stretching the photo */
+  object-position: center 20%;          /* keeps the face in view; change 20% to move the crop */
+  border-radius: 20px;                  /* rounded square, not a circle */
+  border: 1px solid var(--line-strong);
 }
 
 .hero h1 {
   font-family: var(--font-heading);
-  font-size: clamp(3rem, 9vw, 6.5rem);   /* grows and shrinks with screen width */
-  line-height: 1.05;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  overflow-wrap: break-word;
+  line-height: 1.02;
   font-weight: normal;
-  letter-spacing: -0.02em;
-  margin-bottom: 32px;
+  letter-spacing: -0.03em;
+  margin-bottom: 36px;
 }
 
-.hero-intro {
-  font-size: 1.3rem;
-  max-width: 600px;
-  margin-bottom: 24px;
-}
+.hero-intro { font-size: 1.3rem; max-width: 600px; margin-bottom: 32px; }
 
+/* Education shown with a thin green line on the left */
 .hero-education {
-  color: var(--grey-mid);
-  margin-bottom: 40px;
+  color: var(--text-muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+  margin-bottom: 44px;
 }
 
 .button-row { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -118,14 +128,14 @@ a:focus-visible, button:focus-visible {
 .button {
   display: inline-block;
   padding: 12px 28px;
-  border: 1px solid var(--black);
+  border: 1px solid var(--text);
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-
-.button-primary { background: var(--black); color: var(--white); }
-.button-primary:hover { background: var(--white); color: var(--black); }
-.button-outline:hover { background: var(--black); color: var(--white); }
+.button-primary { background: var(--text); color: var(--bg); }
+.button-primary:hover { background: transparent; color: var(--text); }
+.button-outline { color: var(--text); border-color: var(--line-strong); }
+.button-outline:hover { border-color: var(--text); background: var(--bg-raised); }
 
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(12px); }
@@ -134,36 +144,20 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- 4. Sections (CSS Grid) ---------- */
 .section {
-  padding: 80px 0;
-  border-top: 1px solid var(--grey-line);
+  padding: 88px 0;
+  border-top: 1px solid var(--line);
   scroll-margin-top: var(--nav-height);   /* stops the sticky nav covering headings */
 }
+.hero + .section { border-top: none; }
 
 /* Two columns: title on the left, content on the right */
-.section-grid {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 48px;
-}
+.section-grid { display: grid; grid-template-columns: 220px 1fr; gap: 48px; }
 
-.section h2 {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: normal;
-  line-height: 1.25;
-}
-
+.section h2 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: normal; line-height: 1.25; }
 .section h3 { font-size: 1.05rem; margin-bottom: 8px; }
 .section p + p { margin-top: 12px; }
-.note { color: var(--grey-dark); margin-bottom: 32px; }
-
-/* Placeholder text you still need to replace */
-.placeholder {
-  background: var(--off-white);
-  border-bottom: 1px dashed var(--grey-mid);
-  color: var(--grey-dark);
-  padding: 0 4px;
-}
+.section p { color: var(--text-muted); }
+.note { margin-bottom: 32px; }
 
 /* About facts */
 .facts { margin-top: 32px; }
@@ -172,60 +166,69 @@ a:focus-visible, button:focus-visible {
   grid-template-columns: 120px 1fr;
   gap: 16px;
   padding: 14px 0;
-  border-top: 1px solid var(--grey-line);
+  border-top: 1px solid var(--line);
 }
-.facts dt { color: var(--grey-mid); }
+.facts dt { color: var(--text-muted); }
 
 /* ---------- 5. Skills ---------- */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .tags li {
-  border: 1px solid var(--grey-line);
+  border: 1px solid var(--line);
   padding: 4px 12px;
   font-size: 0.92rem;
+  color: var(--text);
   transition: border-color 0.2s, background 0.2s;
 }
-.tags li:hover { border-color: var(--black); background: var(--off-white); }
+.tags li:hover { border-color: var(--line-strong); background: var(--bg-raised); }
 
 /* ---------- 6. Projects ---------- */
 .project-list { display: grid; gap: 24px; }
 
 .project {
-  border: 1px solid var(--grey-line);
-  padding: 28px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  padding: 32px;
   transition: border-color 0.2s, transform 0.2s;
 }
-.project:hover { border-color: var(--black); transform: translateY(-3px); }
+.project:hover { border-color: var(--line-strong); transform: translateY(-3px); }
 
-.project h3 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: normal; }
-.project-meta { color: var(--grey-dark); font-size: 0.95rem; }
-.project-links { display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.9rem; margin-top: 16px; }
-.project-links a { border-bottom: 1px solid var(--black); text-decoration: none; }
+.project h3 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: normal; color: var(--text); margin-bottom: 12px; }
+.project-meta { font-size: 0.95rem; color: var(--text-muted); }  /* team / result line: normal size, grey */
 
 /* ---------- 7. Experience ---------- */
 .highlight {
-  background: var(--black);
-  color: var(--white);
+  border: 1px solid var(--line-strong);
+  background: var(--bg-raised);
   padding: 28px;
   margin-bottom: 40px;
   display: flex;
   align-items: center;
   gap: 24px;
 }
-.highlight-number { font-family: var(--font-heading); font-size: 3.5rem; line-height: 1; }
+.highlight p { color: var(--text); }
+.highlight-number { font-family: var(--font-heading); font-size: 3.5rem; line-height: 1; color: var(--accent) !important; }
 
-.timeline li { padding: 20px 0; border-top: 1px solid var(--grey-line); }
-.timeline-place { color: var(--grey-mid); font-size: 0.95rem; }
+.timeline li { padding: 22px 0; border-top: 1px solid var(--line); }
+.timeline-place { font-size: 0.95rem; }
 
-/* ---------- 8. Interests ---------- */
-.plain-list { margin-bottom: 36px; }
-.plain-list li { padding: 8px 0; border-bottom: 1px solid var(--grey-line); }
+/* ---------- 8. Interests, hobbies and sports ---------- */
+.plain-list li { padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--text); }
 .two-columns { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+
+/* Hobbies and sports: plain boxes, not links, so no underline and no pointer cursor */
+.interest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; align-content: start; }
+.interest-grid li {
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+  padding: 20px;
+  color: var(--text);
+  text-decoration: none;
+  cursor: default;
+  transition: border-color 0.2s;
+}
+.interest-grid li:hover { border-color: var(--line-strong); }
 
 /* ---------- 9. Contact ---------- */
 .contact-list { margin-top: 24px; }
@@ -234,42 +237,44 @@ a:focus-visible, button:focus-visible {
   justify-content: space-between;
   gap: 16px;
   padding: 18px 0;
-  border-top: 1px solid var(--grey-line);
+  border-top: 1px solid var(--line);
   text-decoration: none;
-  transition: padding-left 0.2s;
+  transition: padding-left 0.2s, color 0.2s;
 }
-.contact-list li:last-child a { border-bottom: 1px solid var(--grey-line); }
-.contact-list a:hover { padding-left: 12px; }
-.contact-detail { color: var(--grey-dark); }
+.contact-list li:last-child a { border-bottom: 1px solid var(--line); }
+.contact-list a:hover { padding-left: 12px; color: var(--accent); }
+.contact-detail { color: var(--text-muted); }
 
 /* ---------- 10. Footer and back-to-top ---------- */
-.site-footer {
-  border-top: 1px solid var(--grey-line);
-  padding: 32px 0;
-  color: var(--grey-mid);
-  font-size: 0.9rem;
-}
+.site-footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--text-muted); font-size: 0.9rem; }
 
 .back-to-top {
   position: fixed;
   right: 24px;
   bottom: 24px;
   padding: 10px 16px;
-  background: var(--black);
-  color: var(--white);
-  border: 1px solid var(--black);
+  background: var(--bg-raised);
+  color: var(--text);
+  border: 1px solid var(--line-strong);
   font: inherit;
   cursor: pointer;
   display: none;                      /* script.js shows it after scrolling */
 }
 .back-to-top.visible { display: block; }
-.back-to-top:hover { background: var(--white); color: var(--black); }
+.back-to-top:hover { border-color: var(--text); }
 
 /* ---------- 11. Responsive design (media queries) ---------- */
+@media (max-width: 900px) {
+  .nav-links { gap: 18px; }
+}
+
 @media (max-width: 800px) {
-  .section-grid { grid-template-columns: 1fr; gap: 24px; }   /* stack title above content */
+  .section-grid { grid-template-columns: 1fr; gap: 24px; }   /* title above content */
   .skills-grid { grid-template-columns: 1fr; }
-  .hero { padding: 72px 0; }
+  .hero { padding: 80px 0; }
+  .hero-layout { flex-direction: column-reverse; align-items: flex-start; gap: 48px; }  /* photo above text */
+  .hero-photo { width: 220px; height: 220px; margin-left: 8px; }
+  .section { padding: 64px 0; }
 }
 
 @media (max-width: 720px) {
@@ -283,17 +288,19 @@ a:focus-visible, button:focus-visible {
     right: 0;
     flex-direction: column;
     gap: 0;
-    background: var(--white);
-    border-bottom: 1px solid var(--grey-line);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
   }
   .nav-links.open { display: flex; }  /* script.js adds the "open" class */
-  .nav-links a { display: block; padding: 14px 24px; border: none; }
+  .nav-links a { display: block; padding: 14px 24px; }
 }
 
 @media (max-width: 520px) {
   .two-columns { grid-template-columns: 1fr; }
   .facts div { grid-template-columns: 1fr; gap: 2px; }
   .highlight { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .project { padding: 22px; }
+  .hero-photo { width: min(200px, 60vw); height: min(200px, 60vw); }
 }
 
 /* Respect people who turn animations off in their system settings */
