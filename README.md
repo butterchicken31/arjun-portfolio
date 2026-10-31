@@ -1,27 +1,83 @@
-# Arjun Atroley - Portfolio
+# Arjun Atroley — Personal Portfolio
 
-Personal portfolio website built with plain HTML, CSS and JavaScript. No frameworks, no build step.
+A personal portfolio website showcasing my background, technical interests, skills, and projects.
 
-## Files
+## Live Website
 
-- `index.html` - the content and structure of the page
-- `style.css` - colours, fonts and layout (including the mobile layout)
-- `script.js` - the mobile menu, back-to-top button and footer year
+- **Vercel:** [arjun-portfolio-sigma-six.vercel.app](https://arjun-portfolio-sigma-six.vercel.app/)
+- **GitHub Pages:** [butterchicken31.github.io/arjun-portfolio](https://butterchicken31.github.io/arjun-portfolio/)
 
-## Run locally
+## About
 
-- Open the `portfolio` folder in VS Code, right-click `index.html` and choose **Open with Live Server**, or
-- Double-click `index.html` to open it in your browser.
+I'm Arjun Atroley, a first-year B.Tech student in Computer Science and Engineering at Manipal University Jaipur. I'm interested in cybersecurity, artificial intelligence, web development, and building software projects.
 
-## Things to fill in later
+This website showcases my work, interests, and journey as a developer.
 
-In VS Code, press `Ctrl + Shift + F` and search for `TODO` or `add later` to find every placeholder:
+## Built With
 
-1. Birth month and year (About section)
-2. Project technologies (all three projects)
-3. Project GitHub and live demo links (all three projects)
-4. Hobbies (Interests section)
+- **HTML5** — Page structure and content
+- **CSS3** — Styling, layouts, animations, and responsive design
+- **JavaScript** — Interactive elements and functionality
 
-## Deployed with
+Built with plain HTML, CSS, and JavaScript, without frameworks or build tools.
 
-GitHub Pages, from the `main` branch.
+## Features
+
+- Minimal, dark-themed design
+- Responsive layout for desktop and mobile
+- Personal introduction and interests
+- Project showcase
+- Social and contact links
+- Interactive UI elements
+
+## Projects
+
+A few projects I've worked on:
+
+- **AccessLease** — A cybersecurity-focused project developed during Code-e-Manipal 2.0.
+- **MediTrace** — A prescription safety checker developed during a hackathon.
+- **Password Strength Analyzer** — A web-based tool for evaluating password strength.
+
+## Project Structure
+
+```text
+arjun-portfolio/
+├── index.html
+├── style.css
+├── script.js
+├── profile.png
+└── README.md
+```
+
+## Run Locally
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/butterchicken31/arjun-portfolio.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd arjun-portfolio
+   ```
+
+3. Open `index.html` in your browser, or use the Live Server extension in VS Code.
+
+## Deployment
+
+This website is deployed on:
+
+- **Vercel** — Connected to the GitHub repository for automatic deployments.
+- **GitHub Pages** — Published from the `main` branch.
+
+## Connect
+
+- **GitHub:** [@butterchicken31](https://github.com/butterchicken31)
+- **Instagram:** [@butterchicken_31](https://instagram.com/butterchicken_31)
+- **Email:** [arjunatroley@gmail.com](mailto:arjunatroley@gmail.com)
+
+---
+
+*Built with HTML, CSS, JavaScript, and curiosity.*
