@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Page not found | Arjun Atroley</title>
+
+  <!--
+    All the CSS is written inside this file on purpose.
+    A 404 page can be shown at any address (for example /arjun-portfolio/some/wrong/page),
+    so a relative link like href="style.css" would point to the wrong place and fail.
+  -->
+  <style>
+    :root {
+      --bg: #090909;
+      --bg-raised: #111111;
+      --text: #ffffff;
+      --text-muted: #9a9a9a;
+      --line: #262626;
+      --line-strong: #444444;
+      --accent: #5fbf85;
+      --font-body: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-heading: Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { color-scheme: dark; background: var(--bg); }
+
+    body {
+      min-height: 100vh;
+      display: flex;                 /* centres the content on the screen */
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: var(--font-body);
+      color: var(--text);
+      background-color: var(--bg);
+      /* faint grid lines, to match "off the grid" */
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 48px 48px;
+      line-height: 1.7;
+    }
+
+    /* Fades the grid out towards the middle so the text stays easy to read */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, var(--bg) 25%, transparent 85%);
+      pointer-events: none;
+    }
+
+    .content { position: relative; text-align: center; max-width: 560px; }
+
+    .error-code {
+      font-family: var(--font-heading);
+      font-weight: normal;
+      font-size: clamp(6rem, 28vw, 13rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      animation: fade-up 0.8s ease-out both;
+    }
+
+    /* The middle "0" is only an outline, in green, and floats slowly */
+    .zero {
+      display: inline-block;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--accent);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .message { font-size: 1.3rem; margin: 16px 0 8px; animation: fade-up 0.8s ease-out 0.15s both; }
+    .hint { color: var(--text-muted); margin-bottom: 40px; animation: fade-up 0.8s ease-out 0.3s both; }
+
+    .button {
+      display: inline-block;
+      padding: 12px 28px;
+      border: 1px solid var(--text);
+      background: var(--text);
+      color: var(--bg);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      animation: fade-up 0.8s ease-out 0.45s both;
+    }
+    .button:hover { background: transparent; color: var(--text); transform: translateY(-2px); }
+    .button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+
+    /* Turn animations off for people who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="content">
+    <h1 class="error-code">4<span class="zero">0</span>4</h1>
+    <p class="message">Looks like you've wandered off the grid.</p>
+    <p class="hint">The page you are looking for doesn't exist or may have been moved.</p>
+
+    <!-- href="/" is the default. The script below fixes it for GitHub Pages and local files. -->
+    <a id="home-link" class="button" href="/">Back to Home</a>
+  </main>
+
+  <script>
+    // Work out the correct home address for wherever this site is hosted.
+    const homeLink = document.getElementById("home-link");
+
+    if (window.location.protocol === "file:") {
+      // Opened by double-clicking the file on your computer
+      homeLink.href = "index.html";
+    } else if (window.location.hostname.endsWith("github.io")) {
+      // GitHub Pages project site: the site lives at /arjun-portfolio/, not at "/".
+      // The first part of the path is the repository name.
+      const repositoryName = window.location.pathname.split("/")[1];
+      homeLink.href = "/" + repositoryName + "/";
+    }
+   
+  </script>
+</body>
+</html>

@@ -28,8 +28,19 @@ allNavLinks.forEach(function (link) {
   });
 });
 
+// Scroll progress bar: width grows from 0 to 100% as you scroll down the page
+const scrollProgressBar = document.getElementById("scroll-progress");
+
+function updateScrollProgress() {
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+  scrollProgressBar.style.transform = "scaleX(" + progress + ")";
+}
+
 // 4. Back-to-top button: show it only after scrolling down 400px
 window.addEventListener("scroll", function () {
+  updateScrollProgress();
+
   if (window.scrollY > 400) {
     backToTopButton.classList.add("visible");
   } else {
@@ -110,3 +121,29 @@ document.addEventListener("keydown", function (event) {
     closeLightbox();
   }
 });
+
+// 7. Reveal sections with a fade-in when they scroll into view
+const revealSections = document.querySelectorAll(".section");
+const userPrefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Only animate if the browser supports IntersectionObserver and the visitor allows motion.
+// Otherwise sections are simply visible from the start.
+if ("IntersectionObserver" in window && !userPrefersReducedMotion) {
+  // The observer runs this function only when a section enters or leaves the screen,
+  // so we do not need a scroll listener for this.
+  const revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);   // animate once, then stop watching
+      }
+    });
+  }, { threshold: 0.1 });                          // trigger when 10% of the section is visible
+
+  revealSections.forEach(function (section) {
+    section.classList.add("reveal");               // hide it first (see style.css)
+    revealObserver.observe(section);
+  });
+}
+
+updateScrollProgress();   // set the bar correctly if the page loads already scrolled
